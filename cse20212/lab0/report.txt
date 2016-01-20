@@ -1,0 +1,49 @@
+report.txt
+Author: Kat Herring
+
+From the user's perspective, when the program is run two 
+Mortgage objects are created. The second mortgage is then 
+credited a set amount (defined in main) and its balance is 
+updated and displayed to reflect the credit to the account. An 
+amortization table for the first mortgage, which is initialized 
+with default values, is then provided.
+
+The user is able to adjust the amount to credit secondMortgage, 
+as well as this initial balance, monthly payment, and interest 
+rate. If the principal or interest rate defined is less that 
+zero, an error message is returned; likewise if the payment is 
+less than the monthly interest charged an error message will be 
+returned.
+
+From the programming perspective, the class "Mortgage" is 
+created first in a .hpp file. It provides both a default and non-
+default constructor. The non-default option takes in inputs for 
+the starting principal, interest rate, and payment. Public 
+member functions and private data is prototyped in the class 
+definition as well.
+
+From there, the .cpp file provides definitions for the functions 
+outlined in mortgage.hpp. The non-default constructor provides 
+error checking. The amortize() member function uses a while loop 
+which runs until the balance reaches approximately zero. 
+Formatting with setw() is used to display each month and it's 
+respective payment, interest paid, and new balance.
+
+The credit() function simply takes the inputted credit amount 
+and (provided it is greater than zero) subtracts the credited 
+amount from the principal.
+
+interestPaymentCalc is an overload function that can either 
+calculate the initial interest payment if no input is provided 
+or the return the current interest payment if a number is 
+inputted (used in generating the amortization table).
+
+main.cpp defines a test creditAmount as well as creating two 
+Mortgage objects, one with the default constructor and one with 
+the non-default constructor. The second mortgage is credited a 
+set amount, and its balance is updated and displayed using cout 
+before an amortization table for the defaultMortgage is displayed.
+
+I verified the program by testing different input values for the 
+non-default mortgage. Errors occur if a non-numerical value is 
+inputted for any of the variables.
