@@ -4,7 +4,8 @@
 
 #include <iostream>
 #include <iomanip>
-#include "C4Col.hpp" //includes class definition defined in C4Col.hpp
+#include <cctype>
+#include "C4Col.h" //includes class definition defined in C4Col.hpp
 
 using namespace std;
 
@@ -38,10 +39,11 @@ char C4Col::getDisc(int discLocation) { //returns requested element of char arra
 int C4Col::getMaxDiscs() { //returns max number of discs
 	return maxDisksAllowed;
 }
-void C4Col::addDisc(char) { //adds character representing disk to next open slot
+void C4Col::addDisc(char userChar) { //adds character representing disk to next open slot
 	if(isFull()) {
 		cout << "Error: The column you are attempting to place a disk in is full!" << endl;
 	} else {
-
+		colItems[disksInCol] = userChar;
+		disksInCol++;
 	}
 }
