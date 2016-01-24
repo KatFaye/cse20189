@@ -1,0 +1,63 @@
+Lab 1 Report
+Author: Kat Herring
+
+From the user's perspective, the program displays an intro message 
+before asking if the user would like to play against an AI. If the 
+player enters an invalid number, an error message will be returned two-
+player mode will automatically be initiated. If AI mode is selected, 
+instead of player two moving, the AI will randomly generate a column 
+choice to play in each round.  If the user enters an invalid character 
+(not a digit), an error in the program occurs and player one's move 
+will be skipped before two-player mode begins. Each user then 
+alternates entering the column they wish to place a piece in (the 
+columns are labelled above them) until one of the players wins or the 
+game is terminated with an input of -1. An appropriate goodbye message 
+is displayed at the end of the game. If the player inputs an invalid 
+column (out of bounds or not a number) their turn is skipped. 
+
+From the programming perspective, main includes C4Col.h and C4Board.h 
+before creating an instantiation of C4Board and beginning gameplay 
+through game.play(). C4Board and C4Col are both constructed using 
+dynamically allocated memory.
+
+In play(), the member functions displayIntro(), setAI(), and display() 
+are used run, with setAI() allowing the user to select single or multi-
+player mode. From there, a while loop is entered which continues to 
+run until either the user chooses to quit or some has won the game. 
+Each time the loop is run, "turn" is switched, which keeps track of 
+which player's turn it is. userChar tracks the character used to 
+represent each player, and on each turn (unless the AI is playing), a 
+prompt is displayed for the user and their input for colChoice is 
+selected. If the AI is playing, aiMove is instead called during player 
+two's turn, which returns the AI's colChoice. The AI chooses their 
+move randomly using the rand function mod the value of numCols. If the 
+user's input is invalid (not in the range of 1-7), then their input is 
+ignored and their turn is skipped. After the user has moved, winner() 
+is called to check if their move resulted in a win (four in a row).
+
+winner() checks each of the four possible win conditions for each 
+player using nested for loops and if statements: four in a row 
+vertically, horizontally, bottom-left to top-right diagonally, and 
+bottom-right to top-left diagonally. If a player is found to have four 
+pieces in a row, then 1 (player one's victory) or 2 (player two's 
+victory) is returned. Otherwise, zero is returned.
+
+
+If a victor is reported (hasWon returns a non-zero value), then a 
+congratulatory message is displayed before terminating the program. 
+Deconstructors are run for both C4Board and C4Col using delete[] to 
+free the dynamically allocated memory.
+
+The program was verified for correctness by running the program 
+repeatedly both with and without the AI in order to test each win 
+condition as well as the program's response to invalid input after 
+each user prompt.
+
+get() functions are benefical because they allow the values of private 
+data members to be accessed outside of the class. In general, private 
+data members are good because they prevent outside programs and 
+functions from having access to information that they don't need.
+
+Deconstructors are needed with dynamically allocated memory management 
+in order to prevent memory leaks within programs. This ensures that 
+all objects can be successfully destroyed at the end of the program.

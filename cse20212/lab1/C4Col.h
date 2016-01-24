@@ -7,7 +7,8 @@
 
 class C4Col {
 public:
-	C4Col();
+	C4Col(); //default constructor
+	~C4Col(); //deconstructor
 	int isFull(); //determines if column is full
 	char getDisc(int); //returns requested element of char array
 	int getMaxDiscs(); //returns max number of discs
@@ -16,7 +17,7 @@ public:
 private:
 	int disksInCol;
 	int maxDisksAllowed;
-	char colItems[5]; //characters representing no item, player 1 & 2
+	char * colItems; //characters representing no item, player 1 & 2
 };
 
 #endif //_C4COL_H_

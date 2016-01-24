@@ -17,9 +17,13 @@ C4Col::C4Col() {
 
 	disksInCol = 0; //current disks in col
 	maxDisksAllowed = 6; //how many disks per col 
+	colItems = new char [6];
 	for(i=0;i<=5;i++) { // set character array to ' '
 		colItems[i] = ' ';
 	}
+}
+C4Col::~C4Col() {
+	delete[] colItems;
 }
 int C4Col::isFull() { //determines if column is full
 	if(disksInCol>=6) {
