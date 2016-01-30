@@ -9,5 +9,9 @@ using namespace std;
 
 int main(void) {
 
+	Rational test(88, 22); //testing default rational
+
+	cout << test;
+
 	return 0;
 }
