@@ -19,7 +19,7 @@ int main(void) {
 	Rational result; //used for overloaded calculations
 	Rational test(88, 33);
 	cout << "Display of test of non-default constructor: " << test << endl;
-    while(choice!=4) {
+    while(choice!=5) {
 
         cout << "\nInteractive mode for Rational Class" << endl;
         cout << "==============" << endl; 
@@ -27,7 +27,8 @@ int main(void) {
         cout << "Compute final velocity on an object - 1" << endl;
         cout << "Calculate force on an object- 2" << endl;
         cout << "Find the distance travelled by an object - 3" << endl; 
-        cout << "Quit - 4" << endl;
+        cout << "Create two Rational objects - 4" << endl;
+        cout << "Quit - 5" << endl;
 
         cin >> choice;
 
@@ -55,6 +56,14 @@ int main(void) {
             	userRational[3] = distanceTravelled(userRational[0], userRational[1], userRational[2]);
             	cout << "Distance travelled by object is: " << userRational[3];
                 break;
+            case 4:
+            	cout << "Enter four integers separated by spaces (numerator denominator numerator2, denominator2): " << endl;
+            	int newNum, newDenom, newNum2, newDenom2;
+            	cin >> newNum >> newDenom >> newNum2 >> newDenom2;
+            	Rational newRational1(newNum, newDenom);
+            	Rational newRational2(newNum2, newDenom2);
+
+            	cout << "New Rationals: " << newRational1 << newRational2 << endl;
         }
     }
 
