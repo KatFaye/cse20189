@@ -17,7 +17,8 @@ int main(void) {
 
 	vector<Rational> userRational(5);
 	Rational result; //used for overloaded calculations
-
+	Rational test(88, 33);
+	cout << "Display of test of non-default constructor: " << test << endl;
     while(choice!=4) {
 
         cout << "\nInteractive mode for Rational Class" << endl;
