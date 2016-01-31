@@ -1,0 +1,80 @@
+Lab 2 Report
+Author: Kat Herring
+
+From the user's perspective, when the program is run 
+initially a test of the non-default constructor is 
+displayed alongside the interactive menu allowing the 
+user to choose from a series of options by pressing a key 
+between 1-5. If an invalid integer is pressed, the 
+program will display the menu again. Pressing '1' will 
+allow the user to compute the final velocity on an object 
+using the Rational class. The user is then prompted to 
+enter three rational numbers delimited by spaces for v0, 
+a, and t in the format "a/b". The program then displays 
+the result. If 2 is pressed, the program can calculate 
+the force on an object. The user is prompted to enter 
+values for m and a in fractional format, and will then 
+display the force on an object based on that input. If 3 
+is pressed, the program will find the distance traveled 
+by an object given an input of v0, a, and t in the same 
+format as above. Pressing 4 allows the user to create 
+their own non-default Rational objects by entered four 
+integers. The objects will be echoed back to the user in 
+reduced form. Pressing 5 will terminate the program.
+
+From the programming perspective, the program begins by 
+creating a vector of default Rational objects for use by 
+the rest of the program, as well as a test non-default 
+Rational objects. The default constructor sets the value 
+of both the numerator and denominator to 1. If user-
+inputted values are provided, then the constructor will 
+check if the user inputted an invalid value of '0' and,
+if they have, resets their input to '1'. The rational is 
+simplified within the constructor using the 
+simplifyRational function. simplifyRational calls the 
+function findGCD. findGCD uses the Euclidean algorithm to 
+find the GCD between the numerator and denominator of the 
+rational number, then returns the result to 
+simplifyRational. The numerator and denominator are both 
+divided by the GCD using an overloaded / operator. If the 
+denominator is negative but the numerator is positive, 
+the signs of both ints are switched. If both the 
+denominator and numerator are negative, both numbers are 
+changed to positive. The function returns 0 to signify a 
+successful simplification.
+
+From there, a while loop is entered that will continue 
+until the user presses "5". A text menu is displayed. The 
+user's choice is fed into a switch statement Case 1 
+prompts the user to enter three rational numbers, then 
+records the results using an overload >> operator within 
+a for loop. The objects are then passed into the function 
+finalVelocity, which uses overloaded + and * operators to 
+compute the new velocity. The function then returns the 
+Rational object 'velocity', which is displayed within main
+. When choice is equal to 2, an input of values for two 
+rational objects is recorded by cin. These objects are 
+then passed into the force() function, when calculates 
+the force as a Rational object and returns it. When 
+choice is equal to three,  the program behaves similarly 
+with an input of three Rational objects that are sent 
+into the distanceTraveled function. This function uses 
+an internal Rational with a value of 2 to compute the 
+distance with an overloaded *, +, /, and ^. The 
+overloaded ^ will in general raise a Rational object to 
+the power of a given integer. The distance is returned as 
+a Rational object that is then displayed.
+
+Case four gets an input of four integers then uses those 
+values to create two new Rational objects that are then
+echoed back to the user. The while loop exits when choice 
+is equal to 5.
+
+I verified the program by running it and testing various 
+cases (such as -1/-2 or 2/-1) as well as verifying the 
+results of calculations performed on a calculator. The 
+program will not run successfully if the user inputs a 
+character instead of an integer for a choice, as well as 
+if they do not input values in the correct format within 
+the calculation functions. If a user inputs a zero (not 
+considered a valid input) then the numerator is instead reset to one in all cases it is found.

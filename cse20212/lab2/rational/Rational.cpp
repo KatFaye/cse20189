@@ -99,6 +99,14 @@ int Rational::simplifyRational() {
 	numerator = numerator/GCD;
 	denominator = denominator/GCD;
 
+    if(denominator<0&&numerator>0) { //flips negative sign to top of fraction
+        numerator = -numerator;
+        denominator = abs(denominator);
+    } else if(denominator<0&&numerator<0) { //negative over negative = positive
+        numerator = abs(numerator);
+        denominator = abs(denominator);
+    }
+
 	return 0;
 }
 ostream &operator<<(ostream &output, Rational &r ) {

@@ -10,7 +10,7 @@ using namespace std;
 
 Rational finalVelocity(Rational, Rational, Rational);
 Rational force(Rational m, Rational a);
-Rational distanceTravelled(Rational v0, Rational a, Rational t);
+Rational distanceTraveled(Rational v0, Rational a, Rational t);
 
 int main(void) {
 	int choice = 0; //rational to access
@@ -30,7 +30,7 @@ int main(void) {
         cout << "Create two Rational objects - 4" << endl;
         cout << "Quit - 5" << endl;
 
-        cin >> choice;
+		cin >> choice;
 
         switch(choice) {
             case 1:
@@ -53,7 +53,7 @@ int main(void) {
                 for(int i=0;i<3;i++) {
             		cin >> userRational[i];
             	}
-            	userRational[3] = distanceTravelled(userRational[0], userRational[1], userRational[2]);
+            	userRational[3] = distanceTraveled(userRational[0], userRational[1], userRational[2]);
             	cout << "Distance travelled by object is: " << userRational[3];
                 break;
             case 4:
@@ -87,13 +87,13 @@ Rational force(Rational m, Rational a) {
 
 	return force;
 }
-Rational distanceTravelled(Rational v0, Rational a, Rational t) {
+Rational distanceTraveled(Rational v0, Rational a, Rational t) {
 	//computes distance travelled
 	// d = v0*t + .5*a*t^2
-	Rational half(1, 2);
+	Rational half(2, 1);
 	Rational distance;
 
-	distance = (v0*t) + ((half*a)*(t^2));
+	distance = (v0*t) + ((a/2)*(t^2));
 
 	return distance;
 
