@@ -1,0 +1,119 @@
+Lab Report for Lab 3
+Author: Kat Herring
+Date: 2/8/2016
+
+Part II Lap Report
+==============
+
+From the user's perspective, when the program is 
+run, a list of package stats are displayed for a  
+regular package, a two day package, and an overnight 
+package. at the end, the displayed final cost for 
+each shipping option is displayed. Stats displays 
+the base cost per ounce, but the final cost adds the 
+additional fees for the given shipping option.
+
+From the programming perspective, the program begins 
+by including three class definitions. TwoDayPackage 
+and OvernightPackage are derived classes from the 
+base class Package. Objects of types "Package", 
+"TwoDayPackage", and "OvernightPackage" are 
+initialized using non-default values, then base 
+class pointers are initialized to those derived 
+class objects.
+
+Each object's statistics are then displayed using 
+print() functions. pack1 (of type Package) is simply 
+called directly, however twoDayPack1 and 
+overnightPack1 are printed using pointers that allow 
+the derived classes to use the base class print 
+funciton.
+
+
+Finally, the final costs of all packages are printed 
+using respective calculateCost functions. The two-
+day package simply adds a flat fee to the weigh*cost 
+per ounce, whereas the overnight package adds an 
+extra cost per ounce before using the base class 
+CalculateCost function.
+
+Error checking to ensure that the cost per ounce and 
+weight are greater than zero are included in the 
+setCost and setWeight functions.
+
+Part III Report Questions
+=====================
+
+Inheritance is more natural, because it allows classes to be constructed in the way they would be laid out in a hierarchy. So for the BankAccount class, it makes much more sense to have a derived class of type checkingAccount then for a CheckingAccount to "include" a BankAccount. 
+
+Composition is less natural to use, since within a CheckingAccount class you have to include a BankAccount object, and then refer to that object with the . operator if you want to use its functions or data members for the rest of the program.
+
+In order to make our base class BankAccount abstract, we defined the virtual function print() in the base class to be equal to zero. To make the dervied classes CheckingAccount and BoatLoan concrete, we simply did not set the virtual function print() to be equal to zero in their class definitions and then provided an implementation of the print() function for each of those classes.
+
+Abstract classes make sense since you should never need to create an object of the base class "BankAccount". Rather, any bank account should be a specific type- a "CheckingAccount" or a "BoatLoan", for example. Making the BankAccount class abstract simply ensures that the classes will always be ued in this way.
+
+Coding Challenge (Lightning Round)
+=====================
+
+Base Class: Shape
+-Two Dimensional
+----Polygon
+--------Triangle
+------------Scalene
+------------Isoceles 
+------------Equilaterial
+--------Quadrilateral
+------------Arrowhead
+------------Trapezoid
+------------Parallelogram
+-----------------Rhombus
+-----------------Rectangle
+-----------------Square
+------------Kite
+--------Pentagon
+------------Regular
+------------Concave
+------------Irregular
+--------Hexagon
+------------Regular
+------------Irregular
+--------Heptagon
+------------Regular
+------------Concave
+--------Octagon
+------------Convex
+-----------------Regular
+------------Concave
+----Ellipse
+----Oval
+--------Circle
+----Heart
+----Star
+-Three Dimensional
+----Platonic Solid
+--------Tetrahedron
+--------Cube
+--------Octahedron
+--------Dodecahedron
+--------Icosahedron
+----Prism
+--------Rectangular
+--------Triangular
+--------Hexagonal
+----Pyramid
+--------Square
+--------Rectangular
+--------Triangular
+--------Hexagonal
+----Cylinder
+----Cone
+----Sphere
+----Hemisphere
+-Four Dimensional
+----Hyercube/Tesseract
+----Hypersphere
+----5-cell
+----16-cell
+----24-cell
+----120-cell
+----600-cell
