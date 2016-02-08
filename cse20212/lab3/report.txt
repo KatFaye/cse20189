@@ -44,13 +44,36 @@ setCost and setWeight functions.
 Part III Report Questions
 =====================
 
-Inheritance is more natural, because it allows classes to be constructed in the way they would be laid out in a hierarchy. So for the BankAccount class, it makes much more sense to have a derived class of type checkingAccount then for a CheckingAccount to "include" a BankAccount. 
+Inheritance is more natural, because it allows 
+classes to be constructed in the way they would be 
+laid out in a hierarchy. So for the BankAccount 
+class, it makes much more sense to have a derived 
+class of type checkingAccount then for a 
+CheckingAccount to "include" a BankAccount. 
 
-Composition is less natural to use, since within a CheckingAccount class you have to include a BankAccount object, and then refer to that object with the . operator if you want to use its functions or data members for the rest of the program.
+Composition is less natural to use, since within a 
+CheckingAccount class you have to include a 
+BankAccount object, and then refer to that object 
+with the . operator if you want to use its 
+functions or data members for the rest of the 
+program.
 
-In order to make our base class BankAccount abstract, we defined the virtual function print() in the base class to be equal to zero. To make the dervied classes CheckingAccount and BoatLoan concrete, we simply did not set the virtual function print() to be equal to zero in their class definitions and then provided an implementation of the print() function for each of those classes.
+In order to make our base class BankAccount 
+abstract, we defined the virtual function print() 
+in the base class to be equal to zero. To make the 
+dervied classes CheckingAccount and BoatLoan 
+concrete, we simply did not set the virtual 
+function print() to be equal to zero in their class 
+definitions and then provided an implementation of 
+the print() function for each of those classes.
 
-Abstract classes make sense since you should never need to create an object of the base class "BankAccount". Rather, any bank account should be a specific type- a "CheckingAccount" or a "BoatLoan", for example. Making the BankAccount class abstract simply ensures that the classes will always be ued in this way.
+Abstract classes make sense since you should never 
+need to create an object of the base class 
+"BankAccount". Rather, any bank account should be a 
+specific type- a "CheckingAccount" or a "BoatLoan", 
+for example. Making the BankAccount class abstract 
+simply ensures that the classes will always be ued 
+in this way.
 
 Coding Challenge (Lightning Round)
 =====================
