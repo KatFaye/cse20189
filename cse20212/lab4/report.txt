@@ -1,0 +1,104 @@
+ Lab 4 Report
+ Author: Kat Herring
+
+ From the user's perspective, when "blackjack" is run, 
+ they are given the option to view AI vs. Dealer mode. If 
+ a 1 is inputted, the the game history for the AI versus 
+ the dealer is output, including the current amount of 
+ cash in the AI's hand, until the AI runs out of money. 
+ The total wins of both the deal and the player are 
+ displayed.
+
+ 
+If a 0 is inputting, then a new game begins. The dealer's 
+visible total (one card) is displaying, as well as the 
+player's current total. The user is given the option to 
+hit (1) or stand (0). If the user hits, they are given 
+the option to hit or stand until they either select stand 
+(0) or bust (have a score greater than 21). If both 
+players bust, the tie goes to the dealer. If the players 
+have the same score, the tie goes to the dealer.
+
+ If the game goes on long enough, a "shuffling new deck" 
+ output will be displayed.
+
+ Player and dealer total wins are displayed at the end of 
+ each game until the user decides to quit by inputting a 
+ zero when prompted about a new game.
+
+ From the programming perspective, blackjack.cpp includes 
+ the CardDeck class definition before seeding the random 
+ number generator, creating a default CardDeck object (52 
+ cards), and calling the playBackjack function.
+
+ playBlackjack first gives the user the option to enter 
+ "Ai vs. Dealer" mode by entering a 1 or simply launching 
+ a normal game by hitting 0. If aiMode is selected, a 
+ while loop is entered that will continue until the AI, 
+ which starts with $100, runs out of money. The turns in 
+ a given round are reset to zero, and then the deck is 
+ "reshuffled" (clearing the deck deque then adding 52 and 
+ shuffling them) if less than fifteen cards are currently 
+ in the deck.
+
+ Another while loop is entered that will continue while 
+ the AI is choosing to hit and has not busted (has a 
+ score under or at 21). The deal() function is called, 
+ which returns an int representing "hit"
+
+ Within deal(), the dealer's score for the round is first 
+ found using a convertCard() function which takes an 
+ input of the value of the card at the front of the deque 
+ modulo 12. Convert card converts this value into the 
+ equivalent amount of points- 11 if the card value is 0 (
+ an ace), 10 if the card is 9, 10, or 11 (Jack, King, 
+ Queen), or the current value plus one otherwise (
+ numbered cards). This number is returned and added to 
+ the score before the dealer's card is popped from the 
+ deque. If it's the first card added to the dealer's 
+ score, their current total is displayed and stored in 
+ the value "visibleScore" for the AI. The dealer 
+ continues flipping cards until there score is seventeen. 
+ From there, the userScore (here, the AI) begins to 
+ change using the same methodology. The current total is 
+ displayed after each card flip, and a function aiPlay() 
+ is then called to determine if the AI will hit.
+
+ aiPlay will first check the visible score of the dealer. 
+ If it's between 4-6, a zero will be returned (under the 
+ assumption that the dealer will bust) and the AI will 
+ stay. Following that, if their current score is less 
+ than 16, the AI will hit and the function returns a 1. 
+ In all other cases, the AI stays.
+
+ Once the AI (or player) chooses to stay, the while loop 
+ is exited and the dealer's final total is displayed 
+ before calculating the winner using the findWinner() 
+ function.
+
+ findWinner() first checks if either the player or dealer 
+ busted, and if so, displays an appropriate message and 
+ sets the winner to either a 1 (for player) or 0 (for 
+ dealer). If both players bust, the win goes to the dealer
+ . Otherwise, the winner is calculated by comparing the 
+ scores. Ties also go to the dealer. A victory message is 
+ then displayed.
+
+ If the game is in AI mode, $5 will be added to the 
+ winner's cash on hand, and $5 will be subtracted from 
+ the other player.
+
+ The number of wins is then incremented for the winner, 
+ and a display of the current cash on hand of the AI (if 
+ AI mode) is displayed followed by the current win count 
+ of both the dealer and the player.
+
+ Interactive mode functions similarly, except the user is 
+ asked whether they would like to hit or stay each turn, 
+ and after every game they are prompted to find if they 
+ would like to play again.
+
+ I tested the program by running it and having others play 
+ against the dealer several times. Test cases- if the user 
+ deliberately busted, or if the user and dealer both busted, 
+ were checked to ensure appropriate outcomes were displayed.

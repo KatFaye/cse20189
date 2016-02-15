@@ -1,16 +1,19 @@
 CMP = g++
 MAIN = main
 CLASS = CardDeck
+GAME = blackjack
+FLAGS = -Wall
 
+all: $(MAIN) $(GAME)
 
 $(MAIN): $(CLASS).o $(MAIN).o
-	$(CMP) -o $(MAIN) $(CLASS).o $(MAIN).o
+	$(CMP) -o $@ $^
 
-$(MAIN).o: $(MAIN).cpp
-	$(CMP) -c -g $(MAIN).cpp
+$(GAME): $(CLASS).o $(GAME).o
+	$(CMP) -o $@ $^
 
-$(CLASS).o: $(CLASS).cpp
-	$(CMP) -c -g $(CLASS).cpp
+$%.o: $%.cpp
+	$(CMP) -c $(FLAGS) $^
 
 clean:
-	rm $(MAIN) *.o
+	rm $(MAIN) $(GAME) *.o
