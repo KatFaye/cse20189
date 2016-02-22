@@ -24,11 +24,10 @@ public:
 	bool validMove(int, int, T); //checks if given move is valid
 private:
 	vector<vector<T> > board; //sudoku board
-	string fileName; //default name for input
 	
 };
 template<class T>
-Puzzle<T>::Puzzle(string fileName = "testinput.txt") { //default constructor
+Puzzle<T>::Puzzle(string fileName) { //default constructor
 	fstream infile;
 	vector <T> newRow(9);
 	infile.open(fileName.c_str(), ios::in);
