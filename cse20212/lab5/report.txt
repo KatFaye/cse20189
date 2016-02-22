@@ -1,0 +1,94 @@
+Lab 5 Report
+Author: Kat Herring
+
+From the user perspective, the program begins with a 
+display of an example completed Sodoku or Wordoku puzzle. 
+The user is then prompted to enter either a 0 or 1 to 
+play Sudoku or Wordoku, respectively.
+
+Once the user makes their selection, they are given 
+instructions to enter a row, col, and value for entry in 
+order to make a move, followed by a display of the 
+current board. If their entry is valid, then the piece 
+will be placed. Otherwise, a corresponding message will 
+be displayed if that entry value already exists in either 
+the row, column, or mini-grid. The user is able to 
+continue playing until they either press 0 to quit or 
+successfully complete the board. If they successfully 
+complete the board, a congratulatory message will be 
+displayed.
+
+From the programming perspective, the program 
+instantiates two objects of the templated class Puzzle<T>
+, one of int and another of char, then displays each board
+. Within the constructor, fstream is used to get the data 
+from the input text file. When the file is open and there 
+are no errors, a new vector of size 9 will be added to 
+the board, and will then be filled with the values from 
+the text file. The row is then incremented and a new row 
+is added. Once the end of the file is reached, the is 
+closed. The display function outputs a formatted board 
+using nested if statements and displaying an "_" if the 
+value at a give space is 0.
+
+From there, a prompt is displayed and either a Puzzle<char
+> or Puzzle<int> is instantiated based on user input  
+before calling the member function playGame(). Within 
+playGame, hasWon is initially set to the result of 
+checkWin(). checkWin() checks if the board has been 
+completed correctly using nested if statements. The 
+function return zero if there are remaining zeros in the 
+board or there are duplicates in any row, column, or mini-
+grid. If no errors are found, the function returns 1 and 
+the player has won.
+
+After the initial check, a while loop is entered that 
+continues until the user either quits or wins. It takes 
+an input for the row first, and checks if that is 0. If 
+it is, it sets the value of quit to 1. Otherwise, it 
+continues to take an input for col and entry, then 
+attempts to insert the value into the board. insertNum() 
+checks if a move is valid using validMove, which returns 
+a boolean value. validMove() uses if statements and for 
+loops to check if there is already an entry where the 
+player is attempting to place a value or if that number 
+already exists in the row, column, or mini-grid. If any of 
+these errors are found, validMove returns false and an 
+appropriate error message is displayed; otherwise it 
+returns true.
+
+If the move is found to be valid, the entry is placed 
+within the row, otherwise an addition error message is 
+displayed.
+
+From there, checkWin() checks if the player has now won, 
+then displays the current board and, if the player has 
+not won, another prompt for input.
+
+If the player has won, then the while loop is exited and 
+a congratulatory message is displayed.
+
+I tested the program for errors by inputting both a 
+complete and incomplete Wordoku and Sudoku puzzle. On the 
+incomplete puzzles, I tested all scenarios that should 
+return false for validMove() to ensure they worked 
+correctly, as well as verifying that the user could input 
+valid moves.
+
+validMove() and checkWin() worked well if the user only 
+inputted value values for a given puzzle. However, since 
+the program does not check if the inputted number is 
+within the range 1-9 or the set of letters used for the 
+Wordoku puzzle, it is possible that a "win" would be 
+returned for a puzzle completed incorrectly with invalid 
+numbers or letters.
+
+Templating was implemented so that the value of entry 
+was of type "T", which is then replaced with int or char 
+depending on the instantiation of the object. For blank 
+spaces, both '0' and 0 (int and char) are checked to 
+ensure full functionality whether the object is Puzzle<int
+> or Puzzle<char>. template<class T> was placed before 
+the class definition and each member function, and all 
+member functions were included in the .h file instead of 
+a separate .cpp file.

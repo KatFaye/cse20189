@@ -1,7 +1,7 @@
 CMP = g++
 MAIN = main
 CLASS = puzzle
-FLAGS = -Wall
+FLAGS = -Wall -g
 
 all: $(MAIN)
 
