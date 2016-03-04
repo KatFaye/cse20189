@@ -1,0 +1,49 @@
+Lab Report
+Author: Kat Herring
+
+From the user perspective, the program 
+simply uses the inputted text file to 
+display the blank and then completed board.
+
+Fom the programming perspective, the program 
+begins by creating an easy puzzle object. A 3
+-D vector, solver, is created where solver[0]
+ is the board read in from fstream and solver
+ [1-9] are boards filled entirely with 1-9 
+ respectively. If a position in the 9x9 
+ solver[0] grid has a number, then the 
+ corresponding position in solver[1-9] are 
+ also set to zero.
+
+From there, the function solveBoard() is 
+entered. solverBoard contains a for loop 
+which runs until checkSolver (checks for win 
+using algorithm from checkWin() in Lab 5) 
+returns that the board has been successfully 
+completed. From there, if a number is found 
+in the base board (solver[0]), then all of 
+that row, column, and mini-grid is set to 
+zero in the corresponding board. For 
+example, if a 5 if found in [1][1], then 
+solver[5][0-8][0], solver[5][0][0-8], and 
+solver[5][0-2][0-2] are all set to zero.
+
+Once this has been done for every position 
+in solver[0], a nested for loop is entered 
+which checks for single values in a given 
+set of solver[1-9][j][k]. If such a value is 
+found, that value is added to the base board.
+
+The solver can complete the easy puzzle, 
+however the singleton solver was not 
+completed.
+
+I verified the puzzle solver worked by 
+testing it against easy puzzles. The single 
+value solver worked well and was able to 
+catch all possible additions within a few 
+iterations, however since the singleton 
+solver does not work, the program enters an 
+infinite loop when attempting to create an 
+object for a puzzle that cannot be solved 
+with the current algorithm.
