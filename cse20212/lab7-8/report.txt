@@ -1,0 +1,11 @@
+Lab 7/8 Report
+Author: Kat Herring
+
+Current work and commited progress on our project is located at:
+https://github.com/KKA2/breakingblue
+
+For my portion of the work for this lab, I mainly worked through the SDL tutorials and created test windows that can do things like respond to user input and display images on a window. Although our goals were to design some of the stick figure animation motions over break, I was unable to get that to compile successfully and so I'm submitting some of the practice tutorial work I completed instead.
+
+https://github.com/KKA2/breakingblue/wiki
+
+Within the wiki, there is a sub-page that contains a time log for work done thus far. I completed a few hours of individual work in addition to the multiple group meetings and group work we completed as part of this lab.
