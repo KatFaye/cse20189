@@ -1,0 +1,8 @@
+Lab 9 Report
+============
+
+Although this is a regrade, I was not able to finish the Binary Tree portion of the Lab.
+
+FOr the NDVector class, vector functionalities were implemented with an array as the underlying storage container, with dynamically allocated memory used to implement the various push_back() and other traditional vector functionalities.
+
+The NDVector was then used as a replacement for the deque that was originally used in the CardDeck.h class, with modifications to the code as needed. This can all be run from the driver program.
